@@ -1,0 +1,47 @@
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 9rem;
+    padding-top: 1rem;
+    text-align: center;
+    color: #727272;
+
+    a {
+        color: #727272;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    footer {
+        height: 4rem;
+        padding-bottom: 1rem;
+        p {
+            margin: 0;
+            width: 100%;
+        }
+
+        .textLeft {
+            text-align: left;
+        }
+
+        .textRight {
+            text-align: right;
+        }
+    }
+
+    .row {
+        display: flex;
+        > div {
+            display: inline-flex;
+            align-items: center;
+        }    
+    }
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        left: 6.5rem;
+    }
+}

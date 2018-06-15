@@ -1,0 +1,40 @@
+<header class="header">
+  <div>
+    <a href="#" class="logo">
+      <img src="/assets/images/logo_icon.png" alt="person" class="img-fluid rounded-circle" width="40">
+    </a>
+    <a class="toggleBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+  <div class="topMenu">
+    <ul>        
+      <li>
+        <a class="customerLogo">
+          <img src="/assets/images/customer_logo.png" alt="person"> 
+        </a>
+      </li>
+      <li> 
+        <a class="dropDown" (click)="showDropdown()">                    
+            My Account
+            <span class="iconGroup">
+                <i class="fa fa-user"> </i> 
+                <i class="fa fa-wrench "></i>
+            </span>
+        </a>
+        <ul class="dropdown-menu" [ngClass]="isOpen ? 'show' : 'hidden'">
+          <li>
+            <a (click)="closeDropdown()"> 
+              <i class="fa fa-sign-out"></i> Logout
+            </a>
+          </li>              
+        </ul>
+      </li>
+    </ul>
+  </div>  
+</header>
+
+
+

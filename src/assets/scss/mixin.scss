@@ -1,0 +1,44 @@
+@mixin font-face($font-name, $font-weight) {
+    @font-face {
+        font-family: 'roboto';
+        src: url('assets/fonts/#{$font-name}.woff2') format('woff2'),
+                url('assets/fonts/#{$font-name}.woff') format('woff');
+        font-weight: $font-weight;
+        font-style: normal;
+    }
+}
+
+@mixin positions($pos,$top,$right,$btm,$left) {
+    position: $pos;
+    top: $top;
+    right: $right;
+    bottom: $btm;
+    left: $left;
+}
+
+@mixin positionswithZ($pos,$top,$right,$btm,$left,$zindex) {
+    position: $pos;
+    top: $top;
+    right: $right;
+    bottom: $btm;
+    left: $left;
+    z-index: $zindex;
+}
+
+@mixin positionCenter($pos,$top,$left) {
+    position: $pos;
+    top: $top;
+    left: $left;
+    transform: translate(-$top, -$left);
+}
+
+@mixin positionTopCenter($pos,$top) {
+    position: $pos;
+    top: $top;
+    transform: translateY(-$top);
+}
+
+@mixin showhide($opacity, $visibility) {
+    opacity: $opacity !important;
+    visibility: $visibility !important;
+}

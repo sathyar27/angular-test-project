@@ -1,0 +1,226 @@
+@import '/assets/scss/mixin';
+@import '/assets/scss/variable';
+@import "./node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/font-awesome/scss/font-awesome";
+
+@include font-face(roboto-regular,normal);
+@include font-face(roboto-bold,700);
+@include font-face(roboto-light,500);
+
+
+* {
+    outline: none;
+}
+  
+a,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 13px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'roboto', sans-serif;
+    color: #585858;
+}
+
+.page {
+    background-image: url(assets/images/body-bg.jpg);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    min-height: 100%;
+    padding: 6rem 0 10rem 0;
+}
+
+/* Button Styles */
+.btn {
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0 0.5rem;
+    border-radius: 0;
+    box-shadow: 0 0 0px 1px #fff inset !important;
+
+    i { margin-right: .25rem; }
+
+    &.btn-primary {
+        background-color: $primaryColor;
+        border-color: $primaryColor;
+        
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $white;
+            color: $primaryColor;
+        }
+    }
+
+    &.btn-outline-primary {
+        border-color: $primaryColor;
+        background-color: $white;
+        color: $primaryColor;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $primaryColor;
+            color: $white;
+        }
+    }
+
+    &.btn-outline-default {
+        background-color: $white;
+        border-color: #e4e4e4;
+        color: $secondaryColor;
+
+        &:hover { background-color: #e4e4e4; }
+    }
+
+    + .btn { margin-left: 0.5rem; }
+} 
+
+/* SHOW AND HIDE STYLE */
+.hidden { @include showhide(0,hidden); }
+.show { @include showhide(1,visible); }
+
+/* overlay style */
+.overlay {
+    @include positionswithZ(fixed,0,0,0,0,999);
+    background: rgba( $black, .5);
+    transition: all .3s;
+
+    i {
+        font-size: 3rem;
+        color: $white;
+        @include positionCenter(absolute,50%,50%);
+    }
+
+}
+
+/* modal */
+.modal { background-color: rgba($black,.5); }
+
+
+
+
+/* Custom checkbox and radio button */
+.checkbox,
+.radioBox {
+    position: relative;
+    cursor: pointer;
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+    color: #666;
+    font-size: 1rem;
+    display: inline-block;
+    min-height: 1rem;
+
+    i {
+        border: 1px solid $primaryColor;
+        position: absolute;
+
+        &:before {
+            content: "\F00C";
+            font-family: FontAwesome;
+            color: $primaryColor;
+            font-size: 0.8rem;
+            @include positionCenter(absolute,50%,50%);
+            @include showhide(0,hidden);    
+        }
+    }
+
+    i,
+    input {
+        @include positionCenter(absolute,50%,0);        
+        width: 1rem;
+        height: 1rem; 
+    }
+
+    input {
+        opacity: 0;
+        &:checked ~ i:before { @include showhide(1,visible); }
+    }
+
+    span { vertical-align: middle; }
+}
+
+.checkbox i:before {
+    content: "\F00C";
+    font-family: FontAwesome;
+    color: #ea6341;
+    font-size: 0.8rem;
+}
+
+.radioBox {
+    i {        
+        border-radius:50%;
+
+        &:before {            
+            background-color: $primaryColor;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-left: -0.01rem;
+        }
+    }
+}
+
+/* Alert Messages */
+.alert {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+}
+
+/* Title */
+.titlePrimary h4 {
+    color: $secondaryColor;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+
+@media screen and (min-width: 768px) {
+    .subHeader {
+        background: $white;
+        @include positionswithZ(fixed,65px,0px,auto,90px,1);
+    }
+
+    .titlePrimary {
+        @include positionswithZ(fixed,0px,auto,auto,0px,999);
+        height: 65px;
+        padding-left: 110px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .page {
+        padding-bottom: 5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .page {
+        padding-left: 6.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+}
